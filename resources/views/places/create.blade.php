@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 
-@section("title","Places")
+@section("title","Place")
 
 @section('content')
     @if($errors->any())
@@ -22,16 +22,32 @@
                 <i class="far fa-arrow-alt-circle-left ml-2 icon-view-all"></i>
             </a>
         </div>
+        <hr>
         
         <div class="card-body">
             <form action="{{ route('places.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-
                         <div class="row">
-
-                            
-
+                            <div class="col-md-4">
+                                <h4>Place Image</h4>
+                                <p>Add your place image to
+											personalize your place info.
+											This image can also be used as thumbnail to attract your visitor.</p>
+                            </div>
                             <div class="form-group col-md-4">
+                                <label for="image">Image (Optional)</label>
+                                <input type="file" class="form-control-file @error('image') {{ 'is-invalid' }}@enderror" id="image" name="image" placeholder="Type Firstname..." value="{{ old('image') }}">
+
+                                @error('image')
+                                    <small class="text-danger">
+                                        {{ $message }}
+                                    </small>
+                                @enderror
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="form-group col-md-5">
                                 <label for="name">Name</label>&nbsp;<small class="text-danger">*</small>
                                 <input type="text" class="form-control @error('name') {{ 'is-invalid' }}@enderror" id="name" name="name" placeholder="Ex.  Mt. Balagbag" value="{{ old('name') }}">
 
@@ -42,9 +58,9 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-2">
                                 <label for="lng">Longtitude</label>&nbsp;<small class="text-danger">*</small>
-                                <input type="number" class="form-control @error('lng') {{ 'is-invalid' }}@enderror" id="lng" name="lng" placeholder="Ex. 12.12" value="{{ old('lng') }}">
+                                <input type="number" class="form-control @error('lng') {{ 'is-invalid' }}@enderror" id="lng" name="lng" placeholder="Ex. 12.12" value="{{ old('lng') }}" step="any">
 
                                 @error('lng')
                                     <small class="text-danger">
@@ -53,9 +69,9 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-2">
                                 <label for="lat">Latitude</label>&nbsp;<small class="text-danger">*</small>
-                                <input type="number" class="form-control @error('lat') {{ 'is-invalid' }}@enderror" id="lat" name="lat" placeholder="Ex. 14.12" value="{{ old('lat') }}">
+                                <input type="number" class="form-control @error('lat') {{ 'is-invalid' }}@enderror" id="lat" name="lat" placeholder="Ex. 14.12" value="{{ old('lat') }}" step="any">
 
                                 @error('lat')
                                     <small class="text-danger">
@@ -64,11 +80,11 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group col-md-2">
+                            <div class="form-group col-md-3">
                                 <label for="type">Type</label>
 
                                 <select class="custom-select  @error('type') {{ 'is-invalid' }}@enderror"
-                                        name="type" id="type" onchange="showOrHideCities()">
+                                        name="type" id="type" onchange="showOrHideAttractionInputs()">
                                     <option value="">Choose ...</option>
                                     <option value="attraction" {{ old('type') == 'attraction' ? 'selected' : ''}}>Attraction</option>
                                     <option value="city" {{ old('type') == 'city' ? 'selected' : ''}}>City</option>
@@ -112,8 +128,8 @@
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
-
-
+                            
+                            
                         </div>
                 <hr>
                 <div class="row">
@@ -128,17 +144,17 @@
 
 @section('scripts')
 <script>
-    showOrHideCities();
-    function showOrHideCities()  {
+    showOrHideAttractionInputs();
+    function showOrHideAttractionInputs()  {
         var x = document.getElementById("type").value;
-        var city_input = document.querySelectorAll("#attraction_inputs");
+        var attraction_input = document.querySelectorAll("#attraction_inputs");
         if(x === 'attraction') {
-            city_input.forEach(element => {
+            attraction_input.forEach(element => {
                 element.style.display = 'block';
             });
             
         }else{
-            city_input.forEach(element => {
+            attraction_input.forEach(element => {
                 element.style.display = 'none';
             });
         }

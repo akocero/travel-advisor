@@ -77,6 +77,7 @@
             @yield('content')
         </main>
     </div>
+    <script src="https://kit.fontawesome.com/1f0aca5cbc.js" crossorigin="anonymous"></script>
 @yield('scripts')
 </body>
 </html>

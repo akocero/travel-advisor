@@ -9,7 +9,7 @@
         {{-- <button type="button" class="btn btn-secondary btn-flat" data-toggle="modal" data-target="#exampleModal">
                 Create Data
         </button> --}}
-        <a href="{{ route('places.create') }}" class="btn btn-custom-success"><i class="far fa-plus-square mr-2"></i></i>New Place</a>
+        <a href="{{ route('places.create') }}" class="btn btn-light"><i class="far fa-plus-square mr-2"></i></i>New Place</a>
     </div>
     <div class="col-12">
         <hr class="pb-0 mb-0">

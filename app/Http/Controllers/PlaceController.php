@@ -57,15 +57,18 @@ class PlaceController extends Controller
 
     public function show(Place $place)
     {
-        return view('places.show', compact('place'));
+        $cities = Place::where('type', 'city')->get();
+        // dd($place);
+        return view('places.show', compact('place', 'cities'));
     }
 
 
     public function edit(Place $place)
     {
+        $cities = Place::where('type', 'city')->get();
         // $puroks = Purok::all()->sortBy('name');
         // $households = Household::all()->sortBy('family_name');
-        return view('places.edit', compact('place'));
+        return view('places.edit', compact('place', 'cities'));
     }
 
 
