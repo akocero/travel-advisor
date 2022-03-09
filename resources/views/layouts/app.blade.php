@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
 </head>
 <body>
     <div id="app">
@@ -72,9 +73,11 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4 container">
             @yield('content')
         </main>
     </div>
+    <script src="https://kit.fontawesome.com/1f0aca5cbc.js" crossorigin="anonymous"></script>
+@yield('scripts')
 </body>
 </html>
