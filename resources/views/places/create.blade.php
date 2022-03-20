@@ -29,7 +29,7 @@
                 @csrf
                         <div class="row">
                             <div class="col-md-4">
-                                <h4>Place Image</h4>
+                                <h5>Place Image</h5>
                                 <p>Add your place image to
 											personalize your place info.
 											This image can also be used as thumbnail to attract your visitor.</p>
@@ -95,26 +95,26 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group col-md-4" id="attraction_inputs" style="display: none;">
-                                <label for="city_of">City of</label>
+                            {{-- <div class="form-group col-md-4" id="attraction_inputs" style="display: none;">
+                                <label for="type_of_attraction">Type of Attraction</label>
 
-                                <select class="custom-select  @error('city_of') {{ 'is-invalid' }}@enderror"
-                                        name="city_of">
+                                <select class="custom-select  @error('type_of_attraction') {{ 'is-invalid' }}@enderror"
+                                        name="type_of_attraction">
                                     <option value="">Choose ...</option>
-                                        @foreach ($cities as $city)
-                                            <option value="{{ $city->id }}"
-                                                    {{ old('city_of') == $city->id ? 'selected' : '' }}>
-                                                {{ $city->name }}
+                                        @foreach ($toas as $toa)
+                                            <option value="{{ $toa->id }}"
+                                                    {{ old('toa_id') == $toa->id ? 'selected' : '' }}>
+                                                {{ $toa->name }}
                                             </option>
                                         @endforeach
                                 </select>
 
-                                @error('city_of')
+                                @error('type_of_attraction')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
-                            </div>
+                            </div> --}}
 
-                            <div class="form-group col-md-2" id="attraction_inputs" style="display: none;">
+                            {{-- <div class="form-group col-md-2" id="attraction_inputs" style="display: none;">
                                 <label for="type_of_attraction">Type of Attraction</label>
 
                                 <select class="custom-select  @error('type_of_attraction') {{ 'is-invalid' }}@enderror"
@@ -125,6 +125,55 @@
                                 </select>
 
                                 @error('type_of_attraction')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div> --}}
+                            
+                            
+                            <div class="form-group col-md-8">
+                                <label for="details">Description</label>
+                                <textarea type="text" class="form-control @error('details') {{ 'is-invalid' }}@enderror" id="rich_text_details" name="details" placeholder="Ex. " value="" >{{ old('details') }}</textarea>
+
+                                @error('details')
+                                    <small class="text-danger">
+                                        {{ $message }}
+                                    </small>
+                                @enderror
+                            </div>
+                            <div class="form-group col-md-4" id="attraction_inputs" style="display: none;">
+                                <label for="city_id">City of</label>
+
+                                <select class="custom-select  @error('city_id') {{ 'is-invalid' }}@enderror"
+                                        name="city_id">
+                                    <option value="">Choose ...</option>
+                                        @foreach ($cities as $city)
+                                            <option value="{{ $city->id }}"
+                                                    {{ old('city_id') == $city->id ? 'selected' : '' }}>
+                                                {{ $city->name }}
+                                            </option>
+                                        @endforeach
+                                </select>
+
+                                @error('city_id')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+                            
+
+                            <div class="col-md-12" id="attraction_inputs" style="display: none;">
+                                <label for="">Type of Attractions</label>
+                                <div class="row">   
+                                    @foreach ($toas as $toa)
+                                        <div class="form-check col-md-1 ml-3">
+                                            <input class="form-check-input" type="checkbox" value="{{ $toa->id }}" id="defaultCheck1" name="type_of_attractions[]" {{ (is_array(old('type_of_attractions')) && in_array($toa->id, old('type_of_attractions'))) ? ' checked' : '' }}>
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                {{$toa->name }}
+                                            </label>
+                                        </div>
+                                    @endforeach
+                                </div>
+
+                                @error('type_of_attractions')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
@@ -144,6 +193,17 @@
 
 @section('scripts')
 <script>
+   
+    ClassicEditor
+        .create( document.querySelector( '#rich_text_details' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+
+    $(document).ready(function() {
+        // alert('nyaw');
+
+    });
     showOrHideAttractionInputs();
     function showOrHideAttractionInputs()  {
         var x = document.getElementById("type").value;

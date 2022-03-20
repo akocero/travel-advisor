@@ -1,5 +1,6 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Nunito");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;600;700&display=swap");
 
 // Variables
 @import "variables";
@@ -7,3 +8,11 @@
 
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
+
+body {
+    font-family: "Source Sans Pro", sans-serif !important;
+}
+
+// img {
+//     object-fit: ;
+// }

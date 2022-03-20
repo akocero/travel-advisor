@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Place;
+use App\TOA;
 use Illuminate\Http\Request;
 
 class PlaceController extends Controller
@@ -27,7 +28,7 @@ class PlaceController extends Controller
         } else {
             $places = Place::latest()->paginate(10);
         }
-
+        // dd($places);
         return view('places.index', compact('places', 'search'));
     }
 
@@ -35,9 +36,10 @@ class PlaceController extends Controller
     public function create()
     {
         $cities = Place::where('type', 'city')->get();
+        $toas = TOA::all();
 
         // $households = Household::all()->sortBy('family_name');
-        return view('places.create', compact('cities'));
+        return view('places.create', compact('cities', 'toas'));
     }
 
 
@@ -57,18 +59,21 @@ class PlaceController extends Controller
 
     public function show(Place $place)
     {
+
+        $toas = TOA::all();
         $cities = Place::where('type', 'city')->get();
         // dd($place);
-        return view('places.show', compact('place', 'cities'));
+        return view('places.show', compact('place', 'cities', 'toas'));
     }
 
 
     public function edit(Place $place)
     {
+        $toas = TOA::all();
         $cities = Place::where('type', 'city')->get();
         // $puroks = Purok::all()->sortBy('name');
         // $households = Household::all()->sortBy('family_name');
-        return view('places.edit', compact('place', 'cities'));
+        return view('places.edit', compact('place', 'cities', 'toas'));
     }
 
 
@@ -94,12 +99,13 @@ class PlaceController extends Controller
     {
         return request()->validate([
             'name' => 'required',
+            'details' => '',
             'type' => 'required',
             'lng' => 'required',
             'lat' => 'required',
             'lat' => 'required',
-            'city_of' => 'required_if:type,attraction',
-            'type_of_attraction' => 'required_if:type,attraction',
+            'city_id' => 'required_if:type,attraction',
+            'type_of_attractions' => 'required_if:type,attraction',
             'image' => 'sometimes|file|image|max:2000',
         ]);
     }

@@ -1,4 +1,73 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;
+
+400;600;700&display=swap);@charset "UTF-8";
+.toa-card {
+  position: relative;
+  height: 14rem;
+}
+
+.toa-card .toa-title {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.705);
+  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: uppercase;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+}
+
+.toa-card img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.links,
+.links-2 {
+  padding-left: 0;
+  max-width: 40%;
+  margin: 0 auto;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+.links li,
+.links-2 li {
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.links svg,
+.links-2 svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: white;
+}
+
+.links-2 {
+  max-width: 25%;
+}
+
+footer {
+  clear: both;
+  position: relative;
+  margin-top: 100px;
+}
+
+#map {
+  height: 400px;
+  background-color: red;
+}
+
+#googleMap {
+  height: 400px;
+  background-color: red;
+}
 
 /*!
  * Bootstrap v4.6.1 (https://getbootstrap.com/)
@@ -34,7 +103,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Nunito", sans-serif;
+  --font-family-sans-serif: "Source sans pro", sans-serif;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -66,7 +135,7 @@ section {
 
 body {
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: "Source sans pro", sans-serif;
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
@@ -6426,7 +6495,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: "Source sans pro", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -6551,7 +6620,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Nunito", sans-serif;
+  font-family: "Source sans pro", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -10960,5 +11029,9 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif !important;
 }
 

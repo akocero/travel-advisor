@@ -16,7 +16,7 @@
         <div class="col-12 pt-3 px-4 d-flex justify-content-between align-items-center">
             <h4 class="h4">{{Str::ucfirst($place->name)}}</h4>
             <a style="float: right" href="{{ route('places.index') }}" class="btn btn-light">
-                Places
+                Place list
                 <i class="far fa-arrow-alt-circle-left ml-2 icon-view-all"></i>
             </a>
         </div>
@@ -28,7 +28,7 @@
                     {{-- Personal info tab  --}}
                     <div class="row">
                         <div class="col-md-4">
-                            <h4>Place Image</h4>
+                            <h5>Place Image</h5>
                             <p>Add your place image to personalize your place info. This image can also be used as thumbnail to attract your visitor</p>
                         </div>
                         @if ($place->image)
@@ -94,37 +94,54 @@
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
-
-                        <div class="form-group col-md-3">
-                            <label for="type_of_attraction">Type of Attraction</label>
-
-                            <select class="custom-select  @error('type_of_attraction') {{ 'is-invalid' }}@enderror"
-                                    name="type_of_attraction" id="type_of_attraction" disabled>
-                                <option value="">Choose ...</option>
-                                <option value="swimming" {{ $place->type_of_attraction == 'swimming' ? 'selected' : ''}}>Swimming</option>
-                                <option value="hiking" {{ $place->type_of_attraction == 'hiking' ? 'selected' : ''}}>Hiking</option>
-                            </select>
-
-                            @error('type_of_attraction')
-                                <small class="text-danger">{{ $message }}</small>
-                            @enderror
+                        <div class="col-md-8">
+                            <label for="details">Description</label>
+                            <div>{!! $place->details !!}</div>
                         </div>
+                        {{-- <div class="form-group col-md-8">
+                            <label for="details">Description</label>
+                            <textarea type="text" class="form-control @error('details') {{ 'is-invalid' }}@enderror" id="rich_text_details" name="details" placeholder="Ex. " value="" disabled>{{ $place->details }}</textarea>
 
-                        <div class="form-group col-md-3" id="attraction_inputs">
-                            <label for="city_of">City of</label>
+                            @error('details')
+                                <small class="text-danger">
+                                    {{ $message }}
+                                </small>
+                            @enderror
+                        </div> --}}
 
-                            <select class="custom-select  @error('city_of') {{ 'is-invalid' }}@enderror"
-                                    name="city_of" disabled>
+                        <div class="form-group col-md-4" id="attraction_inputs" style="display: none;">
+                            <label for="city_id">City of</label>
+
+                            <select class="custom-select  @error('city_id') {{ 'is-invalid' }}@enderror"
+                                    name="city_id" disabled>
                                 <option value="">Choose ...</option>
                                     @foreach ($cities as $city)
                                         <option value="{{ $city->id }}"
-                                                {{ $place->city_of == $city->id ? 'selected' : '' }}>
+                                                {{ $place->city_id == $city->id ? 'selected' : '' }}>
                                             {{ $city->name }}
                                         </option>
                                     @endforeach
                             </select>
 
-                            @error('city_of')
+                            @error('city_id')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+
+                        <div class="col-md-12" id="attraction_inputs" style="display: none;">
+                            <label for="">Type of Attractions</label>
+                            <div class="row">   
+                                @foreach ($toas as $toa)
+                                    <div class="form-check col-md-1 ml-3">
+                                        <input class="form-check-input" type="checkbox" value="{{ $toa->id }}" id="defaultCheck1" disabled name="type_of_attractions[]" {{ (is_array($place->type_of_attractions) && in_array($toa->id, $place->type_of_attractions)) ? ' checked' : '' }} >
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            {{$toa->name }}
+                                        </label>
+                                    </div>
+                                @endforeach
+                            </div>
+
+                            @error('type_of_attractions')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
@@ -137,4 +154,23 @@
 @endsection
 
 @section('scripts')
+<script>
+
+    showOrHideAttractionInputs();
+    function showOrHideAttractionInputs()  {
+        var x = document.getElementById("type").value;
+        var attraction_input = document.querySelectorAll("#attraction_inputs");
+        if(x === 'attraction') {
+            attraction_input.forEach(element => {
+                element.style.display = 'block';
+            });
+            
+        }else{
+            attraction_input.forEach(element => {
+                element.style.display = 'none';
+            });
+        }
+        // document.getElementById("demo").innerHTML = "You selected: " + x;
+    }
+</script>
 @endsection

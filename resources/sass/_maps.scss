@@ -1,1 +1,72 @@
+.toa-card {
+    position: relative;
+    // min-height: 10rem;
+    // max-height: 10rem;
+    height: 14rem;
+}
 
+.toa-card .toa-title {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.705);
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+}
+
+.toa-card img {
+    // object-fit: fill;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.links,
+.links-2 {
+    padding-left: 0;
+    max-width: 40%;
+    margin: 0 auto;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+
+    li {
+        font-weight: bold;
+        font-size: 1rem;
+        text-transform: uppercase;
+    }
+
+    svg {
+        width: 1.4rem;
+        height: 1.4rem;
+        fill: white;
+    }
+}
+
+.links-2 {
+    max-width: 25%;
+}
+
+footer {
+    clear: both;
+    position: relative;
+    margin-top: 100px;
+}
+
+// .set-location {
+//     display: flex;
+// }
+
+#map {
+    height: 400px;
+    background-color: red;
+}
+
+#googleMap {
+    height: 400px;
+    background-color: red;
+}
