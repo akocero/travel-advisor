@@ -14,7 +14,6 @@
     <div class="col-12">
         <hr class="pb-0 mb-0">
     </div>
-    
     <div class="card-body">
         <div class="row">
             <div class="col-12">

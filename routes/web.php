@@ -14,14 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/places', 'PlaceController@index')->name('places.index');
-// Route::get('/places/show/{id}', 'PlaceController@show')->name('places.show');
-// Route::get('/places/create', 'PlaceController@create')->name('places.create');
-// Route::get('/places/edit/{id}', 'PlaceController@edit')->name('places.edit');
 Route::resource('places', 'PlaceController')->except('destroy');
-
+Route::apiResource('TOAS', 'ToaController')->except('destroy');
 // Route::resource('places', PlaceController::class)->except('destroy');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'MainController@index');
+Route::get('/toa/{id}', 'AttractionController@index');
+Route::get('/attractions/{place}', 'AttractionController@show');
+Route::post('/review', 'ReviewController@store')->name('reviews.store');
