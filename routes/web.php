@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\PlaceController;
+use App\Mail\ContactMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +27,13 @@ Route::get('/', 'MainController@index');
 Route::get('/toa/{id}', 'AttractionController@index');
 Route::get('/attractions/{place}', 'AttractionController@show');
 Route::post('/review', 'ReviewController@store')->name('reviews.store');
+
+Route::post('/email/contact', 'EmailController@contactEmail')->name('email.contactEmail');
+
+Route::get('/about', function () {
+    return view('about.index');
+});
+
+Route::get('/contact', function () {
+    return view('contact.index');
+});
