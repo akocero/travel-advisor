@@ -71,7 +71,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -95,11 +95,11 @@
                 <div class="col-12">
                     <h2 class="py-4">Travel Advisor</h2>
                     <ul class="links">
-                        <li>Home</li>
-                        <li>About</li>
-                        <li>Contact</li>
-                        <li>Login</li>
-                        <li>Register</li>
+                        <li><a href="/">Home</a> </li>
+                        <li><a href="/about">About</a> </li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/register">Register</a></li>
                     </ul>
                     <ul class="links-2 my-4">
                         <li>
