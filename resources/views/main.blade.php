@@ -11,111 +11,116 @@
             </button>
         </div>
     @endif
-    <div>
-        <div class="jumbotron">
-            <h1 class="display-4">Hello, world!</h1>
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
-                featured content or information.</p>
-            <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-            <p class="lead">
-                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-            </p>
-        </div>
-    </div>
 
-    <div class="card">
-        <div class="card-body">
-            <form class="set-location" id="form_set_location">
-                <h5>Set Your Current Location</h5>
-                <div class="form-group">
-                    <label for="inputPassword2" class="sr-only">Location</label>
-                    <input type="text" class="form-control" id="input_current_location" placeholder="Type your location"
-                        required>
-                </div>
-                <button type="submit" class="btn btn-success mb-2" id="btn_set_location">Confirm Location</button>
-                <button type="button" class="btn btn-primary mb-2" id="btn_change_location">Change Location</button>
-            </form>
+    <section class="showcase">
+        <video src="{{ asset('storage/images/main-video.mp4') }}" muted loop autoplay></video>
+        <div class="overlay"></div>
+        <div class="text">
+            <h2>Never Stop To </h2>
+            <h3>Exploring The World</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat.</p>
+            <a href="#">Explore</a>
         </div>
-    </div>
+    </section>
 
-    <div class="row my-3">
-        <div class="col-12 mb-3">
-            <h2>
-                Cities / Gallery
-            </h2>
+    <div class="container margin-top-full">
+        <div class="card">
+            <div class="card-body">
+                <form class="set-location" id="form_set_location">
+                    <h5>Set Your Current Location</h5>
+                    <div class="form-group">
+                        <label for="inputPassword2" class="sr-only">Location</label>
+                        <input type="text" class="form-control" id="input_current_location" placeholder="Type your location"
+                            required>
+                    </div>
+                    <button type="submit" class="btn btn-success mb-2" id="btn_set_location">Confirm Location</button>
+                    <button type="button" class="btn btn-primary mb-2" id="btn_change_location">Change Location</button>
+                </form>
+            </div>
         </div>
-        {{-- <div class="row">
+
+        <div class="row my-3">
+            <div class="col-12 mb-3">
+                <h2>
+                    Cities / Gallery
+                </h2>
+            </div>
+            {{-- <div class="row">
            
                 <div>{{ $item->name }}</div>
             
         </div> --}}
-        @foreach ($places as $item)
+            @foreach ($places as $item)
 
-            <div class="col-md-6 mb-3">
-                <a href="" aria-disabled="true" id="btn_open_toa">
-                    <div class="card">
-                        <img class="card-img-top" src="{{ asset('storage/' . $item->image) }}" alt="Card image cap"
-                            style="max-height: 15rem; object-fit: cover;">
-                        <div class="card-body">
-                            <h5 class="card-title"> {{ $item->type === 'city' ? 'City of ' . $item->name : $item->name }}
-                            </h5>
-                            {{-- <p class="card-text">{{$item->details}}.</p> --}}
-                            {{-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
+                <div class="col-md-6 mb-3">
+                    <a href="" aria-disabled="true" id="btn_open_toa" onclick="openModal(event)">
+                        <div class="card">
+                            <img class="card-img-top" src="{{ asset('storage/' . $item->image) }}" alt="Card image cap"
+                                style="max-height: 15rem; object-fit: cover;">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    {{ $item->type === 'city' ? 'City of ' . $item->name : $item->name }}
+                                </h5>
+                                {{-- <p class="card-text">{{$item->details}}.</p> --}}
+                                {{-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
-        @endforeach
-    </div>
+                    </a>
+                </div>
+            @endforeach
+        </div>
 
-    <div class="card">
-        <div class="card-body">
-            <h4>Send Us an Email</h4>
-            <form method="post" action="{{ route('email.contactEmail') }}">
-                @csrf
-                <div class="row">
-                    <div class="form-group col-md-6">
-                        <label for="client_email">Email</label>&nbsp;<small class="text-danger">*</small>
-                        <input type="email" class="form-control @error('client_email') {{ 'is-invalid' }}@enderror"
-                                id="client_email" name="client_email" placeholder="Ex.  Mt. Balagbag"
-                                value="{{ old('client_email') }}" />
-
-                            @error('client_email')
-                                <small class="text-danger">
-                                    {{ $message }}
-                                </small>
-                            @enderror
-                        </div>
+        <div class="card">
+            <div class="card-body">
+                <h4>Send Us an Email</h4>
+                <form method="post" action="{{ route('email.contactEmail') }}">
+                    @csrf
+                    <div class="row">
                         <div class="form-group col-md-6">
-                            <label for="name">Name</label>&nbsp;<small class="text-danger">*</small>
-                            <input type="text" class="form-control @error('name') {{ 'is-invalid' }}@enderror" id="name"
-                                    name="name" placeholder="Ex.  Mt. Balagbag" value="{{ old('name') }}" />
+                            <label for="client_email">Email</label>&nbsp;<small class="text-danger">*</small>
+                            <input type="email" class="form-control @error('client_email') {{ 'is-invalid' }}@enderror"
+                                    id="client_email" name="client_email" placeholder="Ex.  Mt. Balagbag"
+                                    value="{{ old('client_email') }}" />
 
-                                @error('name')
+                                @error('client_email')
                                     <small class="text-danger">
                                         {{ $message }}
                                     </small>
                                 @enderror
                             </div>
-                            <div class="form-group col-md-12">
-                                <label for="message">Message</label>
-                                <textarea type="text" class="form-control @error('message') {{ 'is-invalid' }}@enderror"
-                                        name="message" placeholder="Ex. " value="">{{ old('message') }}</textarea>
+                            <div class="form-group col-md-6">
+                                <label for="name">Name</label>&nbsp;<small class="text-danger">*</small>
+                                <input type="text" class="form-control @error('name') {{ 'is-invalid' }}@enderror" id="name"
+                                        name="name" placeholder="Ex.  Mt. Balagbag" value="{{ old('name') }}" />
 
-                                    @error('message')
+                                    @error('name')
                                         <small class="text-danger">
                                             {{ $message }}
                                         </small>
                                     @enderror
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <input type="submit" value="Save" class="btn btn-success float-right px-5">
+                                <div class="form-group col-md-12">
+                                    <label for="message">Message</label>
+                                    <textarea type="text" class="form-control @error('message') {{ 'is-invalid' }}@enderror"
+                                            name="message" placeholder="Ex. " value="">{{ old('message') }}</textarea>
+
+                                        @error('message')
+                                            <small class="text-danger">
+                                                {{ $message }}
+                                            </small>
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="submit" value="Save" class="btn btn-success float-right px-5">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
 
@@ -161,6 +166,15 @@
                 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCm7-oZ1_p9snCUz0VP62ZCXZ-fH8WlewY&libraries=places">
                 </script>
                 <script>
+                    const openModal = (event) => {
+                        event.preventDefault()
+                        console.log('clicked')
+                        if (checkIftheLocationIsSet()) {
+                            $('#exampleModal').modal('show')
+                        } else {
+                            alert('Warning!: Please set your location first')
+                        }
+                    }
                     var options = {
                         types: ["(cities)"],
                     };
@@ -180,13 +194,6 @@
 
 
                     btn_open_toa.addEventListener('click', function(event) {
-                        event.preventDefault()
-
-                        if (checkIftheLocationIsSet()) {
-                            $('#exampleModal').modal('show')
-                        } else {
-                            alert('Warning!: Please set your location first')
-                        }
 
                     })
 
