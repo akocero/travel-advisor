@@ -16,7 +16,7 @@
         <video src="{{ asset('storage/images/main-video.mp4') }}" muted loop autoplay></video>
         <div class="overlay"></div>
         <div class="text">
-            <h2>Never Stop To </h2>
+            <h2>BulacanTour</h2>
             <h3>Exploring The World</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
