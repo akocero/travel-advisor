@@ -22,7 +22,7 @@ class EmailController extends Controller
     {
 
         $data = $this->contactEmailValidatedData();
-        // Mail::to("akocero15@gmail.com")->send(new ContactMail($data));
+        Mail::to("bulacantour@gmail.com")->send(new ContactMail($data));
         // return new ContactMail($data);
 
         return redirect()->back()->with('status', 'Email Sent!');
