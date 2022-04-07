@@ -4,72 +4,75 @@
     {{-- @foreach ($attractions as $a)
         <div>{{ $a->name }}</div>
     @endforeach --}}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 mb-4">
 
-    <div class="row">
-        <div class="col-md-7 mb-4">
-
-            <img src="{{ asset('storage/' . $place->image) }}" alt="" width="100%">
-            {{-- <div class="container text-center">
+                <img src="{{ asset('storage/' . $place->image) }}" alt="" width="100%">
+                {{-- <div class="container text-center">
                     <h1 class="display-4"> {{ $place->name }}</h1>
                 </div> --}}
+            </div>
+            <div class="col-md-5">
+                <h2>{{ $place->name }}</h2>
+                <p> {!! $place->details !!}</p>
+            </div>
         </div>
-        <div class="col-md-5">
-            <h2>{{ $place->name }}</h2>
-            <p> {!! $place->details !!}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card mb-3">
-                <div class="card-img-top" id="googleMap"></div>
-                <div class="card-body">
-                    <div id="output">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-3">
+                    <div class="card-img-top" id="googleMap"></div>
+                    <div class="card-body">
+                        <div id="output">
 
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
+        <div class="row">
 
-        <div class="col-12">
-            <h2>Reviews</h2>
-        </div>
-        <div class="col-12">
-            <form action="{{ route('reviews.store') }}" method="POST">
-                @csrf
-                <input type="hidden" name="place_id" value="{{ $place->id }}">
-                <div class="form-group">
+            <div class="col-12">
+                <h2>Reviews</h2>
+            </div>
+            <div class="col-12">
+                @guest
 
-                    <input type="text" class="form-control @error('body') {{ 'is-invalid' }}@enderror" id="body"
-                            name="body" placeholder="Ex.  Mt. Balagbag" value="{{ old('body') }}">
+                @else
+                    <form action="{{ route('reviews.store') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="place_id" value="{{ $place->id }}">
+                        <div class="form-group">
 
-                        @error('body')
-                            <small class="text-danger">
-                                {{ $message }}
-                            </small>
-                        @enderror
-                    </div>
-                    @guest
+                            <input type="text" class="form-control @error('body') {{ 'is-invalid' }}@enderror" id="body"
+                                    name="body" placeholder="Ex.  Mt. Balagbag" value="{{ old('body') }}">
 
-                    @else
-                        <button type="submit" class="btn btn-primary">Comment</button>
+                                @error('body')
+                                    <small class="text-danger">
+                                        {{ $message }}
+                                    </small>
+                                @enderror
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Comment</button>
+
+
+                        </form>
                     @endguest
+                </div>
+                <div class="col-12">
+                    <hr>
+                </div>
+                <div class="col-12">
+                    @foreach ($place->reviews as $item)
+                        <h5><strong class="text-primary">{{ $item->user->name }}</strong><small
+                                class="text-secondary">&nbsp;{{ $item->created_at }}</small></h5>
+                        {{-- <p> </p> --}}
+                        <p> {{ $item->body }}</p>
+                    @endforeach
+                </div>
 
-                </form>
             </div>
-            <div class="col-12">
-                <hr>
-            </div>
-            <div class="col-12">
-                @foreach ($place->reviews as $item)
-                    <h5><strong class="text-primary">{{ $item->user->name }}</strong><small
-                            class="text-secondary">&nbsp;{{ $item->created_at }}</small></h5>
-                    {{-- <p> </p> --}}
-                    <p> {{ $item->body }}</p>
-                @endforeach
-            </div>
-
         </div>
     @endsection
 @section('scripts')
@@ -136,11 +139,11 @@
 
                     output.innerHTML =
                         `
-                                                                                                                                                                                                                                                <p>From: ${localStorage.getItem('current_loc')}</p>
-                                                                                                                                                                                                                                                <p>To: ${place.name}</p>
-                                                                                                                                                                                                                                                <p>Driving distance: ${result.routes[0].legs[0].distance.text}</p>
-                                                                                                                                                                                                                                                <p>Duration: ${result.routes[0].legs[0].duration.text}</p>
-                                                                                                                                                                                                                                            `
+                                                                                                                                                                                                                                                        <p>From: ${localStorage.getItem('current_loc')}</p>
+                                                                                                                                                                                                                                                        <p>To: ${place.name}</p>
+                                                                                                                                                                                                                                                        <p>Driving distance: ${result.routes[0].legs[0].distance.text}</p>
+                                                                                                                                                                                                                                                        <p>Duration: ${result.routes[0].legs[0].duration.text}</p>
+                                                                                                                                                                                                                                                    `
                     console.log(result);
                     //display route
                     directionsDisplay.setDirections(result);
