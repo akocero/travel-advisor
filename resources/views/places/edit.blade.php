@@ -95,7 +95,7 @@
                                             <select class="custom-select  @error('type') {{ 'is-invalid' }}@enderror" name="type"
                                                     id="type" onchange="showOrHideAttractionInputs()">
                                                     <option value="">Choose ...</option>
-                                                    <option value="city" {{ $place->type == 'city' ? 'selected' : '' }}>City</option>
+                                                    <option value="city" {{ $place->type == 'city' ? 'selected' : '' }}>Province</option>
                                                     <option value="attraction" {{ $place->type == 'attraction' ? 'selected' : '' }}>
                                                         Attraction</option>
                                                 </select>
@@ -138,7 +138,7 @@
 
 
                                                 <div class="form-group col-md-4" id="attraction_inputs" style="display: none;">
-                                                    <label for="city_id">City of</label>
+                                                    <label for="city_id">Province of</label>
 
                                                     <select class="custom-select  @error('city_id') {{ 'is-invalid' }}@enderror" name="city_id">
                                                             <option value="">Choose ...</option>

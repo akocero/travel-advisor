@@ -93,7 +93,7 @@
                                                     <option value="">Choose ...</option>
                                                     <option value="attraction" {{ old('type') == 'attraction' ? 'selected' : '' }}>Attraction
                                                     </option>
-                                                    <option value="city" {{ old('type') == 'city' ? 'selected' : '' }}>City</option>
+                                                    <option value="city" {{ old('type') == 'city' ? 'selected' : '' }}>Province</option>
                                                 </select>
 
                                                 @error('type')
@@ -149,7 +149,7 @@
                                                     @enderror
                                                 </div>
                                                 <div class="form-group col-md-4" id="attraction_inputs" style="display: none;">
-                                                    <label for="city_id">City of</label>
+                                                    <label for="city_id">Province of</label>
 
                                                     <select class="custom-select  @error('city_id') {{ 'is-invalid' }}@enderror" name="city_id">
                                                             <option value="">Choose ...</option>

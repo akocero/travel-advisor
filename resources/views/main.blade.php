@@ -62,7 +62,7 @@
                                 style="max-height: 15rem; object-fit: cover;">
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    {{ $item->type === 'city' ? 'City of ' . $item->name : $item->name }}
+                                    {{ $item->name }}
                                 </h5>
                                 {{-- <p class="card-text">{{$item->details}}.</p> --}}
                                 {{-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
@@ -191,11 +191,6 @@
                         alert('Success!: Location is Set')
                         checkIftheLocationIsSet();
                     });
-
-
-                    btn_open_toa.addEventListener('click', function(event) {
-
-                    })
 
 
                     btn_change_location.addEventListener('click', function() {
