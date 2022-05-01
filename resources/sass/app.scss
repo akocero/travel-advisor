@@ -57,7 +57,7 @@ $dark-blue: #141c65;
     position: relative;
     cursor: pointer;
     background-color: transparent;
-    color: #ebd554;
+    color: #f1d013;
     // background-color: transparent;
 
     // &::before {
@@ -83,10 +83,15 @@ $dark-blue: #141c65;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 2rem;
-    color: #ebd554;
+    color: #f1d013;
 }
 
 .rating-container {
     display: flex;
     justify-content: center;
+}
+
+.carousel {
+    max-height: 22rem;
+    overflow: hidden;
 }

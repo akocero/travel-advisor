@@ -11242,7 +11242,7 @@ body {
   position: relative;
   cursor: pointer;
   background-color: transparent;
-  color: #ebd554;
+  color: #f1d013;
 }
 
 .div-rating {
@@ -11256,11 +11256,16 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 2rem;
-  color: #ebd554;
+  color: #f1d013;
 }
 
 .rating-container {
   display: flex;
   justify-content: center;
+}
+
+.carousel {
+  max-height: 22rem;
+  overflow: hidden;
 }
 

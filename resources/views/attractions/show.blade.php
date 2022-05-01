@@ -5,15 +5,43 @@
         <div>{{ $a->name }}</div>
     @endforeach --}}
     <div class="container">
-        <div class="row">
-            <div class="col-md-7 mb-4">
+        <div id="carouselExampleIndicators" class="carousel slide w-100" data-ride="carousel">
+            <ol class="carousel-indicators">
+                @foreach (explode('|', $place->image) as $pic)
+                    @if ($loop->index == 0)
+                        <li data-target="#carouselExampleIndicators" data-slide-to="{{ $loop->index }}" class="active">
+                        </li>
+                    @else
+                        <li data-target="#carouselExampleIndicators" data-slide-to="{{ $loop->index }}"></li>
+                    @endif
 
-                <img src="{{ asset('storage/' . $place->image) }}" alt="" width="100%">
-                {{-- <div class="container text-center">
-                    <h1 class="display-4"> {{ $place->name }}</h1>
-                </div> --}}
+                @endforeach
+            </ol>
+            <div class="carousel-inner">
+                @foreach (explode('|', $place->image) as $pic)
+                    @if ($loop->index == 0)
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="{{ asset('storage/' . $pic) }}" alt="First slide">
+                        </div>
+                    @else
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="{{ asset('storage/' . $pic) }}" alt="First slide">
+                        </div>
+                    @endif
+
+                @endforeach
             </div>
-            <div class="col-md-5">
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12">
                 <h2>{{ $place->name }}</h2>
                 <p> {!! $place->details !!}</p>
             </div>
@@ -139,11 +167,11 @@
 
                     output.innerHTML =
                         `
-                                                                                                                                                                                                                                                        <p>From: ${localStorage.getItem('current_loc')}</p>
-                                                                                                                                                                                                                                                        <p>To: ${place.name}</p>
-                                                                                                                                                                                                                                                        <p>Driving distance: ${result.routes[0].legs[0].distance.text}</p>
-                                                                                                                                                                                                                                                        <p>Duration: ${result.routes[0].legs[0].duration.text}</p>
-                                                                                                                                                                                                                                                    `
+                                                                                                                                                                                                                                                                                                                                <p>From: ${localStorage.getItem('current_loc')}</p>
+                                                                                                                                                                                                                                                                                                                                <p>To: ${place.name}</p>
+                                                                                                                                                                                                                                                                                                                                <p>Driving distance: ${result.routes[0].legs[0].distance.text}</p>
+                                                                                                                                                                                                                                                                                                                                <p>Duration: ${result.routes[0].legs[0].duration.text}</p>
+                                                                                                                                                                                                                                                                                                                            `
                     console.log(result);
                     //display route
                     directionsDisplay.setDirections(result);
