@@ -84,7 +84,7 @@
                 <form method="post" action="{{ route('email.contactEmail') }}">
                     @csrf
                     <div class="row">
-                        <div class="form-group col-md-6">
+                        {{-- <div class="form-group col-md-6">
                             <label for="client_email">Email</label>&nbsp;<small class="text-danger">*</small>
                             <input type="email" class="form-control @error('client_email') {{ 'is-invalid' }}@enderror"
                                     id="client_email" name="client_email" placeholder="Ex.  Mt. Balagbag"
@@ -95,186 +95,186 @@
                                         {{ $message }}
                                     </small>
                                 @enderror
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="name">Name</label>&nbsp;<small class="text-danger">*</small>
-                                <input type="text" class="form-control @error('name') {{ 'is-invalid' }}@enderror" id="name"
-                                        name="name" placeholder="Ex.  Mt. Balagbag" value="{{ old('name') }}" />
+                            </div> --}}
+                        <div class="form-group col-md-12">
+                            <label for="name">Name</label>&nbsp;<small class="text-danger">*</small>
+                            <input type="text" class="form-control @error('name') {{ 'is-invalid' }}@enderror" id="name"
+                                    name="name" placeholder="Ex.  Mt. Balagbag" value="{{ old('name') }}" />
 
-                                    @error('name')
+                                @error('name')
+                                    <small class="text-danger">
+                                        {{ $message }}
+                                    </small>
+                                @enderror
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="message">Message</label>
+                                <textarea type="text" class="form-control @error('message') {{ 'is-invalid' }}@enderror"
+                                        name="message" placeholder="Ex. " value="">{{ old('message') }}</textarea>
+
+                                    @error('message')
                                         <small class="text-danger">
                                             {{ $message }}
                                         </small>
                                     @enderror
                                 </div>
-                                <div class="form-group col-md-12">
-                                    <label for="message">Message</label>
-                                    <textarea type="text" class="form-control @error('message') {{ 'is-invalid' }}@enderror"
-                                            name="message" placeholder="Ex. " value="">{{ old('message') }}</textarea>
-
-                                        @error('message')
-                                            <small class="text-danger">
-                                                {{ $message }}
-                                            </small>
-                                        @enderror
-                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="submit" value="Send" class="btn btn-success float-right px-5">
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <input type="submit" value="Save" class="btn btn-success float-right px-5">
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-                @guest
+            </div>
+            @guest
 
-                @else
-                    @if (!Auth::user()->rating)
-                        <div class="modal fade" id="ratingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Please Rate Us!</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="rating-container">
-                                            <form action="{{ route('rating.store') }}" method="POST">
-                                                @csrf
-                                                {{-- <input type="hidden" name="rating" value="0">
+            @else
+                @if (!Auth::user()->rating)
+                    <div class="modal fade" id="ratingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Please Rate Us!</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="rating-container">
+                                        <form action="{{ route('rating.store') }}" method="POST">
+                                            @csrf
+                                            {{-- <input type="hidden" name="rating" value="0">
                             <button type="submit">1</button> --}}
-                                                <div class="div-rating">
-                                                    <i class="fas fa-star rating-icon" aria-hidden="true"></i>
-                                                    <input type="submit" value="1" name="rating" class="btn-rating star">
-                                                </div>
-                                                <div class="div-rating">
-                                                    <i class="fas fa-star rating-icon" aria-hidden="true"></i>
-                                                    <input type="submit" value="2" name="rating" class="btn-rating star">
-                                                </div>
-                                                <div class="div-rating">
-                                                    <i class="fas fa-star rating-icon" aria-hidden="true"></i>
-                                                    <input type="submit" value="3" name="rating" class="btn-rating star">
-                                                </div>
-                                                <div class="div-rating">
-                                                    <i class="fas fa-star rating-icon" aria-hidden="true"></i>
-                                                    <input type="submit" value="4" name="rating" class="btn-rating star">
-                                                </div>
-                                                <div class="div-rating">
-                                                    <i class="fas fa-star rating-icon" aria-hidden="true"></i>
-                                                    <input type="submit" value="5" name="rating" class="btn-rating star">
-                                                </div>
-                                            </form>
-                                        </div>
+                                            <div class="div-rating">
+                                                <i class="fas fa-star rating-icon" aria-hidden="true"></i>
+                                                <input type="submit" value="1" name="rating" class="btn-rating star">
+                                            </div>
+                                            <div class="div-rating">
+                                                <i class="fas fa-star rating-icon" aria-hidden="true"></i>
+                                                <input type="submit" value="2" name="rating" class="btn-rating star">
+                                            </div>
+                                            <div class="div-rating">
+                                                <i class="fas fa-star rating-icon" aria-hidden="true"></i>
+                                                <input type="submit" value="3" name="rating" class="btn-rating star">
+                                            </div>
+                                            <div class="div-rating">
+                                                <i class="fas fa-star rating-icon" aria-hidden="true"></i>
+                                                <input type="submit" value="4" name="rating" class="btn-rating star">
+                                            </div>
+                                            <div class="div-rating">
+                                                <i class="fas fa-star rating-icon" aria-hidden="true"></i>
+                                                <input type="submit" value="5" name="rating" class="btn-rating star">
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    @endif
+                    </div>
+                @endif
 
 
-                @endguest
+            @endguest
 
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-xl" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Type of Attractions</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-xl" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Type of Attractions</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                @foreach ($type_of_attractions as $toa)
+                                    <div class="col-md-4 mb-4">
+                                        <a href="{{ 'toa/' . $toa->id }}">
+                                            <div class="toa-card">
+                                                <img src="{{ asset('storage/' . $toa->image) }}" alt="">
+                                                {{-- {{ $toa->name}} --}}
+                                                <h3 class="toa-title">{{ $toa->name }}</h3>
+                                            </div>
+                                        </a>
+
+                                    </div>
+                                @endforeach
                             </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    @foreach ($type_of_attractions as $toa)
-                                        <div class="col-md-4 mb-4">
-                                            <a href="{{ 'toa/' . $toa->id }}">
-                                                <div class="toa-card">
-                                                    <img src="{{ asset('storage/' . $toa->image) }}" alt="">
-                                                    {{-- {{ $toa->name}} --}}
-                                                    <h3 class="toa-title">{{ $toa->name }}</h3>
-                                                </div>
-                                            </a>
 
-                                        </div>
-                                    @endforeach
-                                </div>
-
-                            </div>
-                            {{-- <div class="modal-footer">
+                        </div>
+                        {{-- <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Save changes</button>
             </div> --}}
-                        </div>
                     </div>
                 </div>
+            </div>
 
 
-            @endsection
-            @section('scripts')
-                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCm7-oZ1_p9snCUz0VP62ZCXZ-fH8WlewY&libraries=places">
-                </script>
-                <script>
-                    $(document).ready(function() {
-                        $('#ratingModal').modal('show')
-                    });
-                    const openModal = (event) => {
-                        event.preventDefault()
-                        console.log('clicked')
-                        if (checkIftheLocationIsSet()) {
-                            $('#exampleModal').modal('show')
-                        } else {
-                            alert('Warning!: Please set your location first')
-                        }
+        @endsection
+        @section('scripts')
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCm7-oZ1_p9snCUz0VP62ZCXZ-fH8WlewY&libraries=places">
+            </script>
+            <script>
+                $(document).ready(function() {
+                    $('#ratingModal').modal('show')
+                });
+                const openModal = (event) => {
+                    event.preventDefault()
+                    console.log('clicked')
+                    if (checkIftheLocationIsSet()) {
+                        $('#exampleModal').modal('show')
+                    } else {
+                        alert('Warning!: Please set your location first')
                     }
-                    var options = {
-                        types: ["(cities)"],
-                    };
-                    var btn_open_toa = document.getElementById("btn_open_toa");
-                    var btn_set_location = document.getElementById("btn_set_location");
-                    var btn_change_location = document.getElementById("btn_change_location");
-                    var input_current_location = document.getElementById("input_current_location");
-                    var autocomplete1 = new google.maps.places.Autocomplete(input_current_location, options);
-                    const form = document.getElementById('form_set_location');
+                }
+                var options = {
+                    types: ["(cities)"],
+                };
+                var btn_open_toa = document.getElementById("btn_open_toa");
+                var btn_set_location = document.getElementById("btn_set_location");
+                var btn_change_location = document.getElementById("btn_change_location");
+                var input_current_location = document.getElementById("input_current_location");
+                var autocomplete1 = new google.maps.places.Autocomplete(input_current_location, options);
+                const form = document.getElementById('form_set_location');
 
-                    form.addEventListener('submit', function(event) {
-                        event.preventDefault()
-                        localStorage.setItem('current_loc', input_current_location.value);
-                        alert('Success!: Location is Set')
-                        checkIftheLocationIsSet();
-                    });
-
-
-                    btn_change_location.addEventListener('click', function() {
-                        localStorage.removeItem('current_loc');
-                        checkIftheLocationIsSet();
-                    })
-
-
-                    const checkIftheLocationIsSet = () => {
-                        if (localStorage.getItem('current_loc')) {
-                            input_current_location.disabled = true;
-                            input_current_location.value = localStorage.getItem('current_loc');
-                            btn_set_location.style.display = 'none';
-                            btn_change_location.style.display = 'unset';
-                            return true
-                            // btn_set_location.style.display = 'unset';
-                        } else {
-                            input_current_location.disabled = false;
-                            // input_current_location.value = localStorage.getItem('current_loc');
-                            btn_set_location.style.display = 'unset';
-                            btn_change_location.style.display = 'none';
-                            return false
-                        }
-                    }
-
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault()
+                    localStorage.setItem('current_loc', input_current_location.value);
+                    alert('Success!: Location is Set')
                     checkIftheLocationIsSet();
+                });
 
-                </script>
-            @endsection
+
+                btn_change_location.addEventListener('click', function() {
+                    localStorage.removeItem('current_loc');
+                    checkIftheLocationIsSet();
+                })
+
+
+                const checkIftheLocationIsSet = () => {
+                    if (localStorage.getItem('current_loc')) {
+                        input_current_location.disabled = true;
+                        input_current_location.value = localStorage.getItem('current_loc');
+                        btn_set_location.style.display = 'none';
+                        btn_change_location.style.display = 'unset';
+                        return true
+                        // btn_set_location.style.display = 'unset';
+                    } else {
+                        input_current_location.disabled = false;
+                        // input_current_location.value = localStorage.getItem('current_loc');
+                        btn_set_location.style.display = 'unset';
+                        btn_change_location.style.display = 'none';
+                        return false
+                    }
+                }
+
+                checkIftheLocationIsSet();
+
+            </script>
+        @endsection

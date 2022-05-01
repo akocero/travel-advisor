@@ -12,7 +12,7 @@ class EmailController extends Controller
     {
         return request()->validate([
             'name' => 'required',
-            'client_email' => 'required',
+            'client_email' => '',
             'message' => 'required',
         ]);
     }

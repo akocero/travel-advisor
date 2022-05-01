@@ -18,7 +18,7 @@
                 <form method="post" action="{{ route('email.contactEmail') }}">
                     @csrf
                     <div class="row">
-                        <div class="form-group col-md-6">
+                        {{-- <div class="form-group col-md-6">
                             <label for="client_email">Email</label>&nbsp;<small class="text-danger">*</small>
                             <input type="email" class="form-control @error('client_email') {{ 'is-invalid' }}@enderror"
                                     id="client_email" name="client_email" placeholder="Ex.  Mt. Balagbag"
@@ -29,37 +29,37 @@
                                         {{ $message }}
                                     </small>
                                 @enderror
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="name">Name</label>&nbsp;<small class="text-danger">*</small>
-                                <input type="text" class="form-control @error('name') {{ 'is-invalid' }}@enderror" id="name"
-                                        name="name" placeholder="Ex.  Mt. Balagbag" value="{{ old('name') }}" />
+                            </div> --}}
+                        <div class="form-group col-md-12">
+                            <label for="name">Name</label>&nbsp;<small class="text-danger">*</small>
+                            <input type="text" class="form-control @error('name') {{ 'is-invalid' }}@enderror" id="name"
+                                    name="name" placeholder="Ex.  Mt. Balagbag" value="{{ old('name') }}" />
 
-                                    @error('name')
+                                @error('name')
+                                    <small class="text-danger">
+                                        {{ $message }}
+                                    </small>
+                                @enderror
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="message">Message</label>
+                                <textarea type="text" class="form-control @error('message') {{ 'is-invalid' }}@enderror"
+                                        name="message" placeholder="Ex. " value="">{{ old('message') }}</textarea>
+
+                                    @error('message')
                                         <small class="text-danger">
                                             {{ $message }}
                                         </small>
                                     @enderror
                                 </div>
-                                <div class="form-group col-md-12">
-                                    <label for="message">Message</label>
-                                    <textarea type="text" class="form-control @error('message') {{ 'is-invalid' }}@enderror"
-                                            name="message" placeholder="Ex. " value="">{{ old('message') }}</textarea>
-
-                                        @error('message')
-                                            <small class="text-danger">
-                                                {{ $message }}
-                                            </small>
-                                        @enderror
-                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="submit" value="Send" class="btn btn-success float-right px-5">
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <input type="submit" value="Send" class="btn btn-success float-right px-5">
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-            @endsection
+            </div>
+        @endsection
