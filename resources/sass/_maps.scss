@@ -1,3 +1,7 @@
+body {
+    background-color: #f0fffd !important;
+}
+
 .toa-card {
     position: relative;
     // min-height: 10rem;
@@ -83,7 +87,7 @@ footer {
     right: 0;
     width: 100%;
     min-height: 100vh;
-    padding: 100px;
+    // padding: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -126,8 +130,9 @@ footer {
     text-transform: uppercase;
 }
 .text h3 {
-    font-size: 4em;
+    font-size: 3em;
     font-weight: 700;
+    max-width: 700px;
     color: #fff;
     line-height: 1em;
     text-transform: uppercase;

@@ -38,7 +38,8 @@
                         <div class="form-group col-md-4">
                             <label for="image">Image (Optional)</label>
                             <input type="file" class="form-control-file @error('image') {{ 'is-invalid' }}@enderror"
-                                    id="image" name="image" placeholder="Type Firstname..." value="{{ old('image') }}">
+                                    id="image" name="image[]" multiple placeholder="Type Firstname..."
+                                    value="{{ old('image') }}">
 
                                 @error('image')
                                     <small class="text-danger">

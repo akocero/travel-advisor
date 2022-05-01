@@ -4,13 +4,18 @@
     {{-- @foreach ($attractions as $a)
         <div>{{ $a->name }}</div>
     @endforeach --}}
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container text-center">
-            <h1 class="display-4 font-weight-bold text-uppercase">{{ $type_of_attraction->name }}</h1>
-            <p class="lead">{{ $type_of_attraction->details }}</p>
+
+
+    <div class="container">
+        <div class="jumbotron">
+            <div class="container text-center">
+                <h1 class="display-4 font-weight-bold text-uppercase">{{ $type_of_attraction->name }}</h1>
+                <p class="lead">{{ $type_of_attraction->details }}</p>
+            </div>
         </div>
+        <div class="attractions_container row"></div>
     </div>
-    <div class="attractions_container row"></div>
+
 @endsection
 @section('scripts')
     <script>
@@ -25,12 +30,19 @@
             const attractions_container = document.querySelector('.attractions_container');
             let output = '';
             attrs.forEach(item => {
+                let images = [];
+                if (item.image) {
+                    images = item.image.split("|");
+
+                }
+                console.log(images[0])
+
                 output += ` 
-                                                    
+                                                                                                                                    
                                                         <div class="col-md-4 mb-4"> 
                                                             <a href="/attractions/${item.id}">
                                                                 <div class="toa-card">
-                                                                    <img src="/storage/${item.image}" alt="">
+                                                                    <img src="/storage/${images[0] }" alt="">
                                                                     <h3 class="toa-title">${item.name}</h3>
                                                                 </div>
                                                             </a>

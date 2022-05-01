@@ -24,9 +24,9 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand text-bold pl-1" href="{{ url('/') }}">
                     BulacanTour
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -71,7 +71,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                 document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -87,11 +87,11 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4 pt-5 mt-5">
             @yield('content')
         </main>
-        <footer class="container-fluid bg-dark text-white text-center">
-            <div class="row">
+        <footer class="container-fluid bg-dark text-white text-center footer">
+            <div class="row ">
                 <div class="col-12">
                     <h2 class="py-4">BulacanTour</h2>
                     <ul class="links">
@@ -161,6 +161,31 @@
 
 
     @yield('scripts')
+
+    <script>
+        $(document).ready(function() {
+            if (window.location.href === "http://127.0.0.1:8000/") {
+                $(".navbar").addClass("trans");
+            }
+
+            console.log('adding')
+            $(window).scroll(function() {
+
+
+                var scroll = $(window).scrollTop();
+                if (scroll > 100 && window.location.href === "http://127.0.0.1:8000/") {
+                    $(".navbar").removeClass("trans");
+                    console.log('remove')
+                } else if (scroll < 100 && window.location.href === "http://127.0.0.1:8000/") {
+
+
+                    $(".navbar").addClass("trans");
+                    console.log('adding')
+                }
+            })
+        })
+
+    </script>
 
 </body>
 

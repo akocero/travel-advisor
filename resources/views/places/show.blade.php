@@ -35,12 +35,15 @@
                                 to attract your visitor</p>
                         </div>
                         @if ($place->image)
-                            <div class="col-md-4">
-                                <div class="image-container">
-                                    <img src="{{ asset('storage/' . $place->image) }}" alt="" class="img-thumbnail">
-                                    {{-- <a class="btn-delete-image"><span>&#10005;</span></a> --}}
+                            @foreach (explode('|',$place->image) as $pic)
+                                <div class="col-md-4">
+                                    <div class="image-container">
+                                        <img src="{{ asset('storage/' . $pic) }}" alt="" class="img-thumbnail">
+                                        {{-- <a class="btn-delete-image"><span>&#10005;</span></a> --}}
+                                    </div>
                                 </div>
-                            </div>
+                            @endforeach
+                            
                         @else
                             <div class="col-md-4">
                                 <h5>Image N/A!</h5>

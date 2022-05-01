@@ -45,12 +45,11 @@ class PlaceController extends Controller
 
     public function store(Request $request)
     {
+        // dd(request()->image);
 
-        // dd(request()->all());
+
         $place = Place::create($this->validatedData());
-
         $this->storeImage($place);
-
 
         return redirect()
             ->route('places.show', $place->id)
@@ -82,7 +81,10 @@ class PlaceController extends Controller
         $placeValidatedData = $this->validatedData();
 
         if ($place->image && request()->has('image')) {
-            unlink(storage_path('app/public/' . $place->image));
+            foreach (explode('|', $place->image) as $pic) {
+                unlink(storage_path('app/public/' . $pic));
+            }
+            // unlink(storage_path('app/public/' . $place->image));
         }
 
         $place->update($placeValidatedData);
@@ -106,17 +108,28 @@ class PlaceController extends Controller
             'lat' => 'required',
             'city_id' => 'required_if:type,attraction',
             'type_of_attractions' => 'required_if:type,attraction',
-            'image' => 'sometimes|file|image|max:2000',
+            //'image' => 'sometimes|file|image|max:2000',
         ]);
     }
 
 
     protected function storeImage($place)
     {
+        $image_names = [];
         if (request()->has('image')) {
+            // $place->update([
+            //     'image' => request()->image->store('images/places', 'public'),
+            // ]);
+
+            foreach (request()->image as $file) {
+                $image_names[] = $file->store('images/multiple', 'public');
+            }
+            // dd(implode('|', $image_names));
             $place->update([
-                'image' => request()->image->store('images/places', 'public'),
+                'image' => implode('|', $image_names),
             ]);
+
+            // dd($image_names);
         }
     }
 }

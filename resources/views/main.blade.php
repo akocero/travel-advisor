@@ -15,11 +15,14 @@
     <section class="showcase">
         <video src="{{ asset('storage/images/main-video.mp4') }}" muted loop autoplay></video>
         <div class="overlay"></div>
-        <div class="text">
+
+        <div class="text container">
             <h2>BulacanTour</h2>
             <h3>Exploring The Bulacan Tourist Spots!</h3>
-            <p>Here is your complete travel guide to the off-beaten and famous tourist spots in Bulacan Province!<br>find out why it is one
-            of the best places to visit and know what it's known for.<br><br>It's more fun in Bulcan Province indeed! Without furhter ado, here are the Bulcan tourist attractions you should not miss.</p>
+            <p>Here is your complete travel guide to the off-beaten and famous tourist spots in Bulacan Province!<br>find
+                out why it is one
+                of the best places to visit and know what it's known for.<br><br>It's more fun in Bulcan Province indeed!
+                Without furhter ado, here are the Bulcan tourist attractions you should not miss.</p>
             <a href="#">Explore!</a>
         </div>
     </section>

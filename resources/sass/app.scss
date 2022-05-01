@@ -26,3 +26,28 @@ body {
 // img {
 //     object-fit: ;
 // }
+
+$light-blue: #15aef0;
+$mid-blue: #0054a5;
+$dark-blue: #141c65;
+
+.footer {
+    background-color: $dark-blue !important;
+}
+
+.navbar {
+    background-color: #f0fffd !important;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    a {
+        color: black !important;
+    }
+}
+
+.navbar.trans {
+    background-color: transparent !important;
+    color: white !important;
+    box-shadow: unset;
+    a {
+        color: white !important;
+    }
+}

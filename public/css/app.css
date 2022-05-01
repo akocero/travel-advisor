@@ -1,6 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;
 
 400;600;700&display=swap);@charset "UTF-8";
+body {
+  background-color: #f0fffd !important;
+}
+
 .toa-card {
   position: relative;
   height: 14rem;
@@ -80,7 +84,6 @@ footer {
   right: 0;
   width: 100%;
   min-height: 100vh;
-  padding: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -128,8 +131,9 @@ footer {
 }
 
 .text h3 {
-  font-size: 4em;
+  font-size: 3em;
   font-weight: 700;
+  max-width: 700px;
   color: #fff;
   line-height: 1em;
   text-transform: uppercase;
@@ -11207,5 +11211,28 @@ a.text-dark:focus {
 body {
   font-family: "Source Sans Pro", sans-serif !important;
   box-sizing: border-box;
+}
+
+.footer {
+  background-color: #141c65 !important;
+}
+
+.navbar {
+  background-color: #f0fffd !important;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.navbar a {
+  color: black !important;
+}
+
+.navbar.trans {
+  background-color: transparent !important;
+  color: white !important;
+  box-shadow: unset;
+}
+
+.navbar.trans a {
+  color: white !important;
 }
 
