@@ -17,12 +17,10 @@
         <div class="overlay"></div>
         <div class="text">
             <h2>BulacanTour</h2>
-            <h3>Exploring The World</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat.</p>
-            <a href="#">Explore</a>
+            <h3>Exploring The Bulacan Tourist Spots!</h3>
+            <p>Here is your complete travel guide to the off-beaten and famous tourist spots in Bulacan Province!<br>find out why it is one
+            of the best places to visit and know what it's known for.<br><br>It's more fun in Bulcan Province indeed! Without furhter ado, here are the Bulcan tourist attractions you should not miss.</p>
+            <a href="#">Explore!</a>
         </div>
     </section>
 
@@ -45,7 +43,7 @@
         <div class="row my-3">
             <div class="col-12 mb-3">
                 <h2>
-                    Cities / Gallery
+                    Province / Gallery
                 </h2>
             </div>
             {{-- <div class="row">

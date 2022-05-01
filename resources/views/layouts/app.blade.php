@@ -103,7 +103,7 @@
                     </ul>
                     <ul class="links-2 my-4">
                         <li>
-                            <a href="https://www.youtube.com/channel/UCEOUPF8ViIUYqj4C9lwCeTA" target="__blank">
+                            <a href="https://www.youtube.com/channel/UCP4PitXwXvcJKD70wztSFCA" target="__blank">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                                     <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
                                     <path
@@ -148,7 +148,7 @@
                         Copyright ©<script>
                             document.write(new Date().getFullYear());
 
-                        </script> All rights reserved | This website is developed by (Group Name)
+                        </script> All rights reserved | This website is developed by (VonJoh'BJMC)
                     </p>
                 </div>
             </div>
