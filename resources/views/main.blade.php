@@ -27,11 +27,15 @@
         </div>
     </section>
 
+
+
+
     <div class="container margin-top-full">
         <div class="card">
             <div class="card-body">
                 <form class="set-location" id="form_set_location">
                     <h5>Set Your Current Location</h5>
+
                     <div class="form-group">
                         <label for="inputPassword2" class="sr-only">Location</label>
                         <input type="text" class="form-control" id="input_current_location" placeholder="Type your location"
@@ -124,6 +128,56 @@
                         </div>
                     </div>
                 </div>
+                @guest
+
+                @else
+                    @if (!Auth::user()->rating)
+                        <div class="modal fade" id="ratingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Please Rate Us!</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="rating-container">
+                                            <form action="{{ route('rating.store') }}" method="POST">
+                                                @csrf
+                                                {{-- <input type="hidden" name="rating" value="0">
+                            <button type="submit">1</button> --}}
+                                                <div class="div-rating">
+                                                    <i class="fas fa-star rating-icon" aria-hidden="true"></i>
+                                                    <input type="submit" value="1" name="rating" class="btn-rating star">
+                                                </div>
+                                                <div class="div-rating">
+                                                    <i class="fas fa-star rating-icon" aria-hidden="true"></i>
+                                                    <input type="submit" value="2" name="rating" class="btn-rating star">
+                                                </div>
+                                                <div class="div-rating">
+                                                    <i class="fas fa-star rating-icon" aria-hidden="true"></i>
+                                                    <input type="submit" value="3" name="rating" class="btn-rating star">
+                                                </div>
+                                                <div class="div-rating">
+                                                    <i class="fas fa-star rating-icon" aria-hidden="true"></i>
+                                                    <input type="submit" value="4" name="rating" class="btn-rating star">
+                                                </div>
+                                                <div class="div-rating">
+                                                    <i class="fas fa-star rating-icon" aria-hidden="true"></i>
+                                                    <input type="submit" value="5" name="rating" class="btn-rating star">
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+
+
+                @endguest
 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -167,6 +221,9 @@
                 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCm7-oZ1_p9snCUz0VP62ZCXZ-fH8WlewY&libraries=places">
                 </script>
                 <script>
+                    $(document).ready(function() {
+                        $('#ratingModal').modal('show')
+                    });
                     const openModal = (event) => {
                         event.preventDefault()
                         console.log('clicked')

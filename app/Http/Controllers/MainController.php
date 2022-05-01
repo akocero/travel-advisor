@@ -13,6 +13,8 @@ class MainController extends Controller
     {
         $places = Place::where('type', 'city')->get();
         $type_of_attractions = TOA::all();
+        // $UserRating = auth()->user()->rating();
+        // dd($UserRating);
 
         // dd($places);
         return view('main', compact('places', 'type_of_attractions'));

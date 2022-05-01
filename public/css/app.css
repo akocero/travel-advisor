@@ -11236,3 +11236,31 @@ body {
   color: white !important;
 }
 
+.btn-rating {
+  border: none;
+  padding: 2rem;
+  position: relative;
+  cursor: pointer;
+  background-color: transparent;
+  color: #ebd554;
+}
+
+.div-rating {
+  display: inline;
+  position: relative;
+}
+
+.rating-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: #ebd554;
+}
+
+.rating-container {
+  display: flex;
+  justify-content: center;
+}
+

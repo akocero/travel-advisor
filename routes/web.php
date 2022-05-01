@@ -27,6 +27,7 @@ Route::get('/', 'MainController@index');
 Route::get('/toa/{id}', 'AttractionController@index');
 Route::get('/attractions/{place}', 'AttractionController@show');
 Route::post('/review', 'ReviewController@store')->name('reviews.store');
+Route::post('/rating', 'RatingController@store')->name('rating.store');
 
 Route::post('/email/contact', 'EmailController@contactEmail')->name('email.contactEmail');
 
