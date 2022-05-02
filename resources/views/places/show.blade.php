@@ -29,21 +29,21 @@
 
                     {{-- Personal info tab --}}
                     <div class="row">
-                        <div class="col-md-4">
+                        {{-- <div class="col-md-4">
                             <h5>Place Image</h5>
                             <p>Add your place image to personalize your place info. This image can also be used as thumbnail
                                 to attract your visitor</p>
-                        </div>
+                        </div> --}}
                         @if ($place->image)
-                            @foreach (explode('|',$place->image) as $pic)
-                                <div class="col-md-4">
+                            @foreach (explode('|', $place->image) as $pic)
+                                <div class="col-md-4 mb-4">
                                     <div class="image-container">
                                         <img src="{{ asset('storage/' . $pic) }}" alt="" class="img-thumbnail">
                                         {{-- <a class="btn-delete-image"><span>&#10005;</span></a> --}}
                                     </div>
                                 </div>
                             @endforeach
-                            
+
                         @else
                             <div class="col-md-4">
                                 <h5>Image N/A!</h5>

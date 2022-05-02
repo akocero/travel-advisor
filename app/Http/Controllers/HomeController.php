@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Rating;
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $ratings = Rating::all();
+        $users = User::all();
+        return view('home', compact("ratings", "users"));
     }
 }

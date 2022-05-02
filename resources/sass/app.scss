@@ -33,6 +33,9 @@ $dark-blue: #141c65;
 
 .footer {
     background-color: $dark-blue !important;
+    a {
+        color: white;
+    }
 }
 
 .navbar {
