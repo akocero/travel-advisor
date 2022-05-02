@@ -31,6 +31,11 @@ $light-blue: #15aef0;
 $mid-blue: #0054a5;
 $dark-blue: #141c65;
 
+.card {
+    border: none;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
 .footer {
     background-color: $dark-blue !important;
     a {
@@ -52,6 +57,11 @@ $dark-blue: #141c65;
     box-shadow: unset;
     a {
         color: white !important;
+        text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    a.dropdown-item {
+        color: black !important;
     }
 }
 .btn-rating {
@@ -121,5 +131,47 @@ $dark-blue: #141c65;
     .container {
         position: relative;
         z-index: 1;
+    }
+}
+
+.btn {
+    &-custom-success {
+        border: 1px solid #47ca98 !important;
+        transition: all 0.3s ease;
+        box-shadow: 0px 5px 10px rgba(#47ca98, 0.4) !important;
+        background-color: #47ca98;
+        color: white;
+
+        &:hover {
+            transform: translateY(-2px);
+            color: white;
+            background-color: darken(#47ca98, 2);
+            box-shadow: 0px 15px 20px rgba(#47ca98, 0.4) !important;
+        }
+
+        &:active {
+            transform: translateY(0);
+            box-shadow: 0px 5px 10px rgba(#47ca98, 0.4) !important;
+        }
+    }
+
+    &-custom-primary {
+        border: 1px solid $blue !important;
+        transition: all 0.3s ease;
+        box-shadow: 0px 5px 10px rgba($blue, 0.4) !important;
+        background-color: $blue;
+        color: white;
+
+        &:hover {
+            transform: translateY(-2px);
+            color: white;
+            background-color: darken($blue, 2);
+            box-shadow: 0px 15px 20px rgba($blue, 0.4) !important;
+        }
+
+        &:active {
+            transform: translateY(0);
+            box-shadow: 0px 5px 10px rgba($blue, 0.4) !important;
+        }
     }
 }

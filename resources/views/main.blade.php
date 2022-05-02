@@ -41,8 +41,10 @@
                         <input type="text" class="form-control" id="input_current_location" placeholder="Type your location"
                             required>
                     </div>
-                    <button type="submit" class="btn btn-success mb-2" id="btn_set_location">Confirm Location</button>
-                    <button type="button" class="btn btn-primary mb-2" id="btn_change_location">Change Location</button>
+                    <button type="submit" class="btn btn-custom-success mb-2" id="btn_set_location">Confirm
+                        Location</button>
+                    <button type="button" class="btn btn-custom-primary mb-2" id="btn_change_location">Change
+                        Location</button>
                 </form>
             </div>
         </div>
@@ -121,7 +123,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <input type="submit" value="Send" class="btn btn-success float-right px-5">
+                                    <input type="submit" value="Send" class="btn btn-custom-success float-right px-5">
                                 </div>
                             </div>
                         </form>

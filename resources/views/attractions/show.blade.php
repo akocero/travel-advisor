@@ -5,7 +5,7 @@
         <div>{{ $a->name }}</div>
     @endforeach --}}
     <div class="container">
-        <div id="carouselExampleIndicators" class="carousel slide w-100" data-ride="carousel">
+        <div id="carouselExampleIndicators" class="carousel slide w-100 shadow" data-ride="carousel">
             <ol class="carousel-indicators">
                 @foreach (explode('|', $place->image) as $pic)
                     @if ($loop->index == 0)
@@ -176,11 +176,11 @@
 
                     output.innerHTML =
                         `
-                                                                                                                                                                                                                                                                                                                                                                                            <p>From: ${localStorage.getItem('current_loc')}</p>
-                                                                                                                                                                                                                                                                                                                                                                                            <p>To: ${place.name}</p>
-                                                                                                                                                                                                                                                                                                                                                                                            <p>Driving distance: ${result.routes[0].legs[0].distance.text}</p>
-                                                                                                                                                                                                                                                                                                                                                                                            <p>Duration: ${result.routes[0].legs[0].duration.text}</p>
-                                                                                                                                                                                                                                                                                                                                                                                        `
+                                                                                                                                                                                                                                                                                                                                                                                                        <p>From: ${localStorage.getItem('current_loc')}</p>
+                                                                                                                                                                                                                                                                                                                                                                                                        <p>To: ${place.name}</p>
+                                                                                                                                                                                                                                                                                                                                                                                                        <p>Driving distance: ${result.routes[0].legs[0].distance.text}</p>
+                                                                                                                                                                                                                                                                                                                                                                                                        <p>Duration: ${result.routes[0].legs[0].duration.text}</p>
+                                                                                                                                                                                                                                                                                                                                                                                                    `
                     console.log(result);
                     //display route
                     directionsDisplay.setDirections(result);
