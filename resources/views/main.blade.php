@@ -23,7 +23,7 @@
                 out why it is one
                 of the best places to visit and know what it's known for.<br><br>It's more fun in Bulcan Province indeed!
                 Without furhter ado, here are the Bulcan tourist attractions you should not miss.</p>
-            <a href="#">Explore!</a>
+            <a href="/contact">Contact US!</a>
         </div>
     </section>
 
@@ -49,7 +49,7 @@
             </div>
         </div>
 
-        <div class="row my-3">
+        <div class="row my-3" id="gallery">
             <div class="col-12 mb-3">
                 <h2>
                     Province / Gallery
