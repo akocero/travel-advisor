@@ -41,9 +41,17 @@
             </a>
         </div>
         <div class="row mt-4">
+            <div class="col-md-12">
+                <h5 for="" class="mb-0 pb-0">Description</h5>
+                <hr class="mt-2 pt-0">
+            </div>
             <div class="col-12">
                 <h2>{{ $place->name }}</h2>
                 <p> {!! $place->details !!}</p>
+            </div>
+            <div class="col-md-12 mt-5">
+                <h5 for="" class="mb-0 pb-0">Google Map Details</h5>
+                <hr class="mt-2 pt-0">
             </div>
         </div>
         <div class="row">
@@ -58,10 +66,11 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-5">
 
-            <div class="col-12">
-                <h2>Reviews</h2>
+            <div class="col-md-12">
+                <h5 for="" class="mb-0 pb-0">Reviews</h5>
+                <hr class="mt-2 pt-0">
             </div>
             <div class="col-12">
                 @guest
@@ -167,11 +176,11 @@
 
                     output.innerHTML =
                         `
-                                                                                                                                                                                                                                                                                                                                <p>From: ${localStorage.getItem('current_loc')}</p>
-                                                                                                                                                                                                                                                                                                                                <p>To: ${place.name}</p>
-                                                                                                                                                                                                                                                                                                                                <p>Driving distance: ${result.routes[0].legs[0].distance.text}</p>
-                                                                                                                                                                                                                                                                                                                                <p>Duration: ${result.routes[0].legs[0].duration.text}</p>
-                                                                                                                                                                                                                                                                                                                            `
+                                                                                                                                                                                                                                                                                                                                                                                            <p>From: ${localStorage.getItem('current_loc')}</p>
+                                                                                                                                                                                                                                                                                                                                                                                            <p>To: ${place.name}</p>
+                                                                                                                                                                                                                                                                                                                                                                                            <p>Driving distance: ${result.routes[0].legs[0].distance.text}</p>
+                                                                                                                                                                                                                                                                                                                                                                                            <p>Duration: ${result.routes[0].legs[0].duration.text}</p>
+                                                                                                                                                                                                                                                                                                                                                                                        `
                     console.log(result);
                     //display route
                     directionsDisplay.setDirections(result);

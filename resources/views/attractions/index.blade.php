@@ -7,10 +7,10 @@
 
 
     <div class="container">
-        <div class="jumbotron">
+        <div class="jumbotron attractions-header">
             <div class="container text-center">
                 <h1 class="display-4 font-weight-bold text-uppercase">{{ $type_of_attraction->name }}</h1>
-                <p class="lead">{{ $type_of_attraction->details }}</p>
+                <p class="lead w-75 mx-auto">{{ $type_of_attraction->details }}</p>
             </div>
         </div>
         <div class="attractions_container row"></div>
@@ -38,16 +38,16 @@
                 console.log(images[0])
 
                 output += ` 
-                                                                                                                                    
-                                                        <div class="col-md-4 mb-4"> 
-                                                            <a href="/attractions/${item.id}">
-                                                                <div class="toa-card">
-                                                                    <img src="/storage/${images[0] }" alt="">
-                                                                    <h3 class="toa-title">${item.name}</h3>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    `
+                                                                                                                                                
+                                                                    <div class="col-md-4 mb-4"> 
+                                                                        <a href="/attractions/${item.id}">
+                                                                            <div class="toa-card">
+                                                                                <img src="/storage/${images[0] }" alt="">
+                                                                                <h3 class="toa-title">${item.name}</h3>
+                                                                            </div>
+                                                                        </a>
+                                                                    </div>
+                                                                `
             });
             // console.log(output)
             attractions_container.innerHTML = output;

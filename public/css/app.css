@@ -11273,3 +11273,28 @@ body {
   overflow: hidden;
 }
 
+.attractions-header {
+  position: relative;
+  background: url(/images/atr-bg.jpg?91ff8e173f2fb4260a487394bfaac467);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 40% 35%;
+  color: white;
+}
+
+.attractions-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #3490dc;
+  opacity: 0.3;
+}
+
+.attractions-header .container {
+  position: relative;
+  z-index: 1;
+}
+
