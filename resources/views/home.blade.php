@@ -16,10 +16,17 @@
                             <div class="col-md-4">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h3>
-                                            Total Rating: <span
-                                                class="text-bold">{{ $ratings->sum('rating') / $ratings->count() }}</span>
-                                        </h3>
+                                        @if ($ratings->count() == 0)
+                                            <h3>
+                                                Total Rating: <span class="text-bold">0</span>
+                                            </h3>
+                                        @else
+                                            <h3>
+                                                Total Rating: <span
+                                                    class="text-bold">{{ $ratings->sum('rating') / $ratings->count() }}</span>
+                                            </h3>
+                                        @endif
+
                                     </div>
                                 </div>
                             </div>
@@ -65,7 +72,7 @@
                                         </tr>
                                     @empty
                                         <tr class="text-center">
-                                            <td colspan="10">No Places Found!</td>
+                                            <td colspan="10">No Rating Found!</td>
                                         </tr>
                                     @endforelse
                                 </tbody>
