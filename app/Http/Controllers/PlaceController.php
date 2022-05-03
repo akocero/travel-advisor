@@ -80,12 +80,12 @@ class PlaceController extends Controller
     {
         $placeValidatedData = $this->validatedData();
 
-        if ($place->image && request()->has('image')) {
-            foreach (explode('|', $place->image) as $pic) {
-                unlink(storage_path('app/public/' . $pic));
-            }
-            // unlink(storage_path('app/public/' . $place->image));
-        }
+        // if ($place->image && request()->has('image')) {
+        //     foreach (explode('|', $place->image) as $pic) {
+        //         unlink(storage_path('app/public/' . $pic));
+        //     }
+        //     // unlink(storage_path('app/public/' . $place->image));
+        // }
 
         $place->update($placeValidatedData);
 

@@ -21,7 +21,7 @@ class CreatePlacesTable extends Migration
             $table->text('type_of_attractions')->nullable();
             $table->text('details')->nullable();
             // $table->string('city_of')->nullable();
-            $table->string('image')->nullable();
+            $table->text('image')->nullable();
             $table->string('lng');
             $table->string('lat');
             $table->timestamps();

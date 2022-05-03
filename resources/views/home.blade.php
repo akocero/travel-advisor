@@ -23,7 +23,7 @@
                                         @else
                                             <h3>
                                                 Total Rating: <span
-                                                    class="text-bold">{{ $ratings->sum('rating') / $ratings->count() }}</span>
+                                                    class="text-bold">{{number_format( $ratings->sum('rating') / $ratings->count(), 2) }}</span>
                                             </h3>
                                         @endif
 

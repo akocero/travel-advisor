@@ -82,7 +82,7 @@
                         <div class="form-group">
 
                             <input type="text" class="form-control @error('body') {{ 'is-invalid' }}@enderror" id="body"
-                                    name="body" placeholder="Ex.  Mt. Balagbag" value="{{ old('body') }}">
+                                    name="body" placeholder="Add a comment..." value="{{ old('body') }}">
 
                                 @error('body')
                                     <small class="text-danger">

@@ -101,7 +101,7 @@
                         <div class="form-group col-md-12">
                             <label for="name">Name</label>&nbsp;<small class="text-danger">*</small>
                             <input type="text" class="form-control @error('name') {{ 'is-invalid' }}@enderror" id="name"
-                                    name="name" placeholder="Ex.  Mt. Balagbag" value="{{ old('name') }}" />
+                                    name="name" placeholder="Ex. Maria" value="{{ old('name') }}" />
 
                                 @error('name')
                                     <small class="text-danger">
@@ -112,7 +112,7 @@
                             <div class="form-group col-md-12">
                                 <label for="message">Message</label>
                                 <textarea type="text" class="form-control @error('message') {{ 'is-invalid' }}@enderror"
-                                        name="message" placeholder="Ex. " value="">{{ old('message') }}</textarea>
+                                        name="message" placeholder="Add a comment..." value="">{{ old('message') }}</textarea>
 
                                     @error('message')
                                         <small class="text-danger">

@@ -29,7 +29,7 @@
         <nav class="navbar navbar-expand-md navbar-dark fixed-top">
             <div class="container">
                 <a class="navbar-brand text-bold pl-1" href="{{ url('/') }}">
-                    BulacanTour
+                    <i class="fas fa-paper-plane"></i>&nbsp;&nbsp;BulacanTour
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"

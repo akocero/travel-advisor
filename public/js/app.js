@@ -37335,8 +37335,8 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\akoce\Documents\web-app\travel_advisor\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\akoce\Documents\web-app\travel_advisor\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\joh\Documents\web_app\travel-advisor\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\joh\Documents\web_app\travel-advisor\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
